@@ -1,10 +1,10 @@
 import yaml
 import sys
 
-# from funcFamily import FuncFamily
-# from metric import Metric
+# from funcFactory import FuncFactory
+# from metricFactory import MetricFactory
 # from costFunc import CostFunc
-# from optimizer import Optimizer
+# from optimizerFactory import OptimizerFactory
 
 def main():
 
@@ -17,10 +17,10 @@ def main():
         fstream_dict = yaml.safe_load(fstream)
 
 # Will edit later
-    # function = FuncFamily.create(fstream_dict['function']['name'], **fstream_dict['function']['params'])
-    # metric = Metric.create(fstream_dict['metric']['name'])
+    # function = FuncFactory.create(fstream_dict['function']['name'], **fstream_dict['function']['params'])
+    # metric = MetricFactory.create(fstream_dict['metric']['name'])
     # costFunc = CostFunc(data, function, metric)
-    # optimizer = Optimizer.create(fstream_dict['optimizer']['name'])
+    # optimizer = OptimizerFactory.create(fstream_dict['optimizer']['name'])
 
 
 main()
