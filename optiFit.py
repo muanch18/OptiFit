@@ -3,6 +3,7 @@ import sys
 
 # from funcFamily import FuncFamily
 # from metric import Metric
+# from costFunc import CostFunc
 # from optimizer import Optimizer
 
 def main():
@@ -18,6 +19,7 @@ def main():
 # Will edit later
     # function = FuncFamily.create(fstream_dict['function']['name'], **fstream_dict['function']['params'])
     # metric = Metric.create(fstream_dict['metric']['name'])
+    # costFunc = CostFunc(data, function, metric)
     # optimizer = Optimizer.create(fstream_dict['optimizer']['name'])
 
 
