@@ -1,7 +1,7 @@
 from linReg import LinearRegression
 
 
-class funcFactory:
+class FuncFactory:
 
     def create(name, **params):
         functions = {'linReg' : LinearRegression}
