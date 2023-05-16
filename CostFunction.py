@@ -1,8 +1,14 @@
-class CostFunction:
-    def __init__(self, y_true, y_pred, metric):
-        self.y_true = y_true
-        self.y_pred = y_pred
-        self.metric = metric
 
-    def cost(self):
-        return self.metric(self.y_true, self.y_pred)
+class CostFunction:
+    def __init__ (self, data, funcFamily, metric):
+        self.data = data
+        self.funcFamily = funcFamily
+        self.metric = metric
+    
+    def __call__(self, **params):
+        return self.costFunc(**params)
+    
+    def costFunc(self, **params):
+        func = self.funcFamily(**params)
+        y_pred = func() #data input?
+        return self.metric(y_pred) #data ouput?
