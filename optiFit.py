@@ -9,15 +9,14 @@ from dataImportExport import DataImportExport
 
 def main():
 
-    if len(sys.argv) != 3:
-        sys.exit("Must include YAML file name and data file")
+    if len(sys.argv) != 2:
+        sys.exit("Must include YAML file name")
 
     yml_file = sys.argv[1]
-    data_file = sys.argv[2]
-
     with open(yml_file, 'r') as fstream:
         dict = yaml.safe_load(fstream)
     
+    data_file = dict['data']['name']
     dataImport = DataImportExport(data_file)
     data = dataImport.import_data()
 
