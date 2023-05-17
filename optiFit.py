@@ -20,10 +20,10 @@ def main():
     dataImport = DataImportExport(data_file)
     data = dataImport.import_data()
 
-    function = FuncFactory.create(dict['function']['name'], **dict['function']['params'])
+    function = FuncFactory.create(dict['function']['name'])
     metric = MetricFactory.create(dict['metric']['name'])
-    costFunc = CostFunction(data, function, metric)
-    optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'])
+    # costFunc = CostFunction(data, function, metric)
+    # optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'])
 
 
 main()
