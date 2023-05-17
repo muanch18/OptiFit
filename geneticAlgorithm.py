@@ -1,4 +1,4 @@
-from optimizationTechnique import OptimizationTechnique
+from OptimizationTechnique import OptimizationTechnique
 from scipy.optimize import differential_evolution
 
 class GeneticAlgorithm(OptimizationTechnique):
