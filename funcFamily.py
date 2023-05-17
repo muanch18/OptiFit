@@ -2,16 +2,19 @@ import abc
 
 class FuncFamily(abc.ABC):
 
+    def __init__(self, *params):
+        self.update_params(*params)
+
     @abc.abstractmethod
-    def __init__(**params):
+    def _func(self, x):
         pass
 
     @abc.abstractmethod
-    def func(self, x):
+    def update_params(self, *params):
         pass
 
     def __call__(self, x):
-        return self.func(x)
+        return self._func(x)
     
 
 

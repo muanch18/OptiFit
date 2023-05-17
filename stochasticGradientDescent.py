@@ -1,4 +1,4 @@
-from optimizationTechnique import OptimizationTechnique
+from OptimizationTechnique import OptimizationTechnique
 from sklearn.linear_model import SGDRegressor
 
 
