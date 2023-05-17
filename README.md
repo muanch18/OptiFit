@@ -32,7 +32,7 @@ pip install numpy scipy PyYAML sphinx
 python optifit.py <parameter_file.yml>
 ```
 
-## Adding New Models and Optimization Techniques
+## Adding New Models, Optimization Techniques, and Metrics
 To add a new model:
 - Create a new Python file for your model **my_model.py**
 - Define a new class that inherits from the **FuncFamily** abstract base class and implement the **func()** method
@@ -42,6 +42,12 @@ To add a new optimization technique:
 - Create a new Python file for your technique (e.g., **my_technique.py**)
 - Define a new class that inherits from the **OptimizationTechnique** abstract base class and implement the **optimize()** method
 - Add the new technique to the **OptimizationTechniqueFactory** class in **optimizationTechniqueFactory.py**
+
+To add a new metric:
+- Create a new Python file for your metric **my_metric.py**
+- Define a new class that inherits from the **Metric** abstract base class and implement the **func()** method
+- Add the new metric to the **MetricFactory** class in **metricFactory.py**
+
 
 ## Documentation
 This project uses Sphinx to generate documentation from the source code.
