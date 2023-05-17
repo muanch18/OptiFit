@@ -24,18 +24,18 @@ This project provides an object-oriented library designed for the optimization o
 
 ## Usage
 - Install Dependencies
-'''
+```
 pip install numpy scipy PyYAML sphinx
-'''
+```
 - Run the driver code with a YAML parameter file:
-'''
+```
 python optifit.py <parameter_file.yml>
-'''
+```
 
 ## Adding New Models and Optimization Techniques
 To add a new model:
 - Create a new Python file for your model **my_model.py**
-- Define a new class that inherits from the **ModelFunction** abstract base class and implement the **func()** method
+- Define a new class that inherits from the **FuncFamily** abstract base class and implement the **func()** method
 - Add the new model to the **FuncFactory** class in **funcFactory.py**
 
 To add a new optimization technique:
@@ -46,18 +46,19 @@ To add a new optimization technique:
 ## Documentation
 This project uses Sphinx to generate documentation from the source code.
 
-To build the documentation, navigate to the docs/ directory and run:
+To build the documentation, navigate to the docs/directory and run:
 
-'''
+```
 make html
-'''
+```
 
 This will generate HTML documentation in the `_build/html/` directory. Open `_build/html/index.html` in a web browser to view the documentation.
 
 To generate a PDF of the documentation, you need to have latex and pdflatex installed. Then, you can run:
-'''
+
+```
 make latexpdf
-'''
+```
 
 This will generate a PDF file in the `_build/latex/` directory. 
 
