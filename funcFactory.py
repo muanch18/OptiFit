@@ -3,7 +3,7 @@ from linReg import LinearRegression
 
 class FuncFactory:
 
-    def create(name, **params):
+    def create(name, *params):
         functions = {'linReg' : LinearRegression}
         
         if name in functions:
@@ -11,5 +11,5 @@ class FuncFactory:
         else: 
             return None
         
-        return function(**params)
+        return function(*params)
 
