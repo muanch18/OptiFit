@@ -6,6 +6,7 @@ from metricFactory import MetricFactory
 from CostFunction import CostFunction
 from OptimizationTechniqueFactory import OptimizationTechniqueFactory
 from dataImportExport import DataImportExport
+from visualization import Visualization
 
 def main():
 
@@ -29,16 +30,17 @@ def main():
 
     func_params = dict['function']['params']
     initial_parameters = np.array(list(func_params.values()))
-
     func = FuncFactory.create(dict['function']['name'], initial_parameters)
 
     costFunc = CostFunction(inputs, outputs, func, metric)
 
     optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'], **dict['optimizer']['params'])
     
-    result = optimizer.optimize(costFunc, initial_parameters)
+    final_parameters = optimizer.optimize(costFunc, initial_parameters)
+    final_func = FuncFactory.create(dict['function']['name'], final_parameters)
 
-    print(result)
+    visual = Visualization(inputs, outputs, final_func)
+    visual.visualize()
 
 
 main()
