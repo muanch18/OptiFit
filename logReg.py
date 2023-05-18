@@ -10,7 +10,7 @@ class LogisticRegression(FuncFamily):
     def update_params(self, params):
         self.a = params[0]
         self.b = params[1]
-        self.C = params[3]
+        self.C = params[2]
     
     
     
