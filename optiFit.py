@@ -34,9 +34,7 @@ def main():
 
     costFunc = CostFunction(inputs, outputs, func, metric)
 
-    # dont know why line below doesnt compile...
-    # optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'], dict['optimizer']['params'])
-    optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'])
+    optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'], **dict['optimizer']['params'])
     
     result = optimizer.optimize(costFunc, initial_parameters)
 
