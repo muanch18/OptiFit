@@ -3,14 +3,9 @@ import sys
 import numpy as np
 from funcFactory import FuncFactory
 from metricFactory import MetricFactory
+from CostFunction import CostFunction
 from OptimizationTechniqueFactory import OptimizationTechniqueFactory
 from dataImportExport import DataImportExport
-
-def cost_function(params, model_func, metric_func, x, y_true):
-    y_pred = model_func(params, x)
-    return metric_func(y_pred, y_true)
-
-
 
 def main():
 
@@ -25,23 +20,27 @@ def main():
     dataImport = DataImportExport(data_file)
     data = dataImport.import_data()
 
-    function = FuncFactory.create(dict['function']['name'], **dict['function']['params'])
+    x = dict['data']['params']['x']
+    y = dict['data']['params']['y']
+    inputs = np.array(data[x])
+    outputs = np.array(data[y])
 
     metric = MetricFactory.create(dict['metric']['name'])
 
-    data = DataImportExport.import_data(dict['data']['file_name'])
+    func_params = dict['function']['params']
+    initial_parameters = np.array(list(func_params.values()))
 
-    x = np.array(data['x'])
-    y_true = np.array(data['y'])
+    func = FuncFactory.create(dict['function']['name'], initial_parameters)
 
-    optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'], cost_function, function, metric, x, y_true)
+    costFunc = CostFunction(inputs, outputs, func, metric)
 
-    result = optimizer.optimize()
-# Will edit later
-    # metric = MetricFactory.create(dict['metric']['name'])
-    # costFunc = CostFunc(data, function, metric)
-    # optimizer = OptimizerFactory.create(dict['optimizer']['name'])
+    # dont know why line below doesnt compile...
+    # optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'], dict['optimizer']['params'])
+    optimizer = OptimizationTechniqueFactory.create(dict['optimizer']['name'])
+    
+    result = optimizer.optimize(costFunc, initial_parameters)
 
+    print(result)
 
 
 main()

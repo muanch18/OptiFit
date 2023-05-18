@@ -7,11 +7,11 @@ class Metric(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def func(self, y, y_true):
+    def func(self, y_pred, y_true):
         pass
 
-    def __call__(self, y, y_true):
-        return self.func(y, y_true)
+    def __call__(self, y_pred, y_true):
+        return self.func(y_pred, y_true)
     
 
 
