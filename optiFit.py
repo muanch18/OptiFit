@@ -39,7 +39,7 @@ def main():
     final_parameters = optimizer.optimize(costFunc, initial_parameters)
     final_func = FuncFactory.create(dict['function']['name'], final_parameters)
 
-    visual = Visualization(inputs, outputs, final_func)
+    visual = Visualization(inputs, outputs, final_func, x, y)
     visual.visualize()
 
 
