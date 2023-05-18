@@ -3,9 +3,9 @@ import abc
 class OptimizationTechnique(abc.ABC):
 
     @abc.abstractmethod
-    def __init__(self, cost_function):
-        self.cost_function = cost_function
+    def __init__(self, **params):
+        pass
 
     @abc.abstractmethod
-    def optimize(self):
+    def optimize(self, cost_function, initial_parameters):
         pass
