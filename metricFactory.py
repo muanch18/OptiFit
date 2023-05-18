@@ -4,7 +4,7 @@ from MeanSquaredError import MeanSquaredError
 
 class MetricFactory:
 
-    def create(name, **params):
+    def create(name):
         metrics = {'euclidean' : Euclidean, 'mean squared' : MeanSquaredError}
         
         if name in metrics:
@@ -12,5 +12,5 @@ class MetricFactory:
         else: 
             return None
         
-        return metric(**params)
+        return metric()
 
