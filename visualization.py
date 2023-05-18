@@ -9,5 +9,8 @@ class Visualization:
 
     def visualize(self):
         plt.plot(self.inputs, self.outputs)
-        plt.plot(self.inputs, self.func)
+        line = []
+        for x in self.inputs:
+            line.append(self.func(x))
+        plt.plot(self.inputs, line)
         plt.show()
