@@ -25,7 +25,7 @@ This project provides an object-oriented library designed for the optimization o
 ## Usage
 - Install Dependencies
 ```
-pip install numpy scipy PyYAML sphinx
+pip install numpy scipy matplotlib PyYAML sphinx
 ```
 - Run the driver code with a YAML parameter file:
 ```
